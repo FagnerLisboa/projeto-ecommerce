@@ -1,0 +1,108 @@
+<h2 class="contact__title">Entre em contato</h2>
+    <section class="contact__container">
+        <form class="contact-form" [formGroup]="formContato"(ngSubmit)="enviarFormulario()">
+            <input type="text" placeholder="Digite o seu nome" formControlName="nome"
+            [class.valid]="formContato.controls['nome'].valid" [class.invalid]="
+                formContato.controls['nome'].invalid &&
+                (formContato.controls['nome'].touched || formContato.controls['nome'].dirty)"
+            />
+            <div 
+               *ngIf="formContato.controls['nome'].invalid &&
+                (formContato.controls['nome'].touched || formContato.controls['nome'].dirty)">
+               <small class="error-message" *ngIf="formContato.controls['nome'].hasError('minlength')">
+                    Esse campo precisa de no minimo 4 catacteres.
+                </small>
+                <small class="error-message" *ngIf="formContato.controls['nome'].hasError('required')">
+                    Esse campo precisa ser preenchido.
+                </small>
+            </div>
+            <input 
+                type="assunto" 
+                placeholder="Degite o assunto" 
+                formControlName="assunto"
+                [class.valid]="formContato.controls['assunto'].valid" 
+                [class.invalid]="formContato.controls['assunto'].invalid &&
+                (formContato.controls['assunto'].touched || formContato.controls['assunto'].dirty)"
+            />
+            <div 
+               *ngIf="formContato.controls['assunto'].invalid &&
+                (formContato.controls['assunto'].touched || formContato.controls['assunto'].dirty)">
+                <small class="error-message" *ngIf="formContato.controls['assunto'].hasError('minlength')">
+                    Esse campo precisa de no minimo 10 catacteres.
+                </small>
+                <small class="error-message" *ngIf="formContato.controls['assunto'].hasError('required')">
+                    Esse campo precisa ser preenchido.
+                </small>
+            </div>
+            <input 
+                type="tel" 
+                placeholder="(00) 0 0000-00000" 
+                mask="(00) 0 0000-0000" 
+                formControlName="telefone"
+                [class.valid]="formContato.controls['telefone'].valid" 
+                [class.invalid]="formContato.controls['telefone'].invalid &&
+                (formContato.controls['telefone'].touched || formContato.controls['telefone'].dirty)"
+            />
+            <div 
+                *ngIf="formContato.controls['telefone'].invalid &&
+                (formContato.controls['telefone'].touched || formContato.controls['telefone'].dirty)">
+               <small class="error-message" *ngIf="formContato.controls['telefone'].hasError('minlength')">
+                    Esse campo precisa de no minimo 11 catacteres.
+                </small>
+                <small class="error-message" *ngIf="formContato.controls['telefone'].hasError('required')">
+                    Esse campo precisa ser preenchido.
+                </small>
+            </div>
+            <input 
+                type="email"
+                placeholder="Digite o seu e-mail" 
+                formControlName="email"
+                [class.valid]="formContato.controls['email'].valid" 
+                [class.invalid]="formContato.controls['email'].invalid &&
+                (formContato.controls['email'].touched || formContato.controls['email'].dirty)" 
+            />
+            <div 
+                *ngIf="formContato.controls['email'].invalid &&
+                (formContato.controls['email'].touched || formContato.controls['email'].dirty)">
+                <small 
+                class="error-message" 
+               *ngIf="formContato.controls['email'].hasError('minlength')">
+                    Email obrigatório.
+                </small>
+                <small class="error-message" *ngIf="formContato.controls['email'].hasError('required')">
+                    Esse campo precisa ser preenchido.
+                </small>
+            </div>
+            <textarea 
+                maxlength="300" 
+                placeholder="Digite sua mesagem..."
+                rows="4"
+                formControlName="mesagem"
+                [class.valid]="formContato.controls['mesagem'].valid" 
+                [class.invalid]="formContato.controls['mesagem'].invalid &&
+                (formContato.controls['mesagem'].touched || formContato.controls['mesagem'].dirty)" 
+            ></textarea>
+            <div 
+                *ngIf="formContato.controls['mesagem'].invalid &&
+                (formContato.controls['mesagem'].touched || formContato.controls['mesagem'].dirty)">
+                <small 
+                class="error-message" 
+               *ngIf="formContato.controls['mesagem'].hasError('minlength')">
+                    Esse campo precisa de no mínimo 20 caracteres.
+                </small>
+                <small class="error-message" *ngIf="formContato.controls['mesagem'].hasError('required')">
+                    Esse campo precisa ser preenchido.
+                </small>
+            </div>    
+        <button [disabled]="formContato.invalid" type="submit">Enviar</button>
+    </form>
+    <address>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29810.600362279103!2d-46.67489911731818!3d-23.529606818591606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce58440abea8f3%3A0x959de50780565217!2sAlameda%20Bar%C3%A3o%20de%20Limeira%2C%20373%20-%20Campos%20El%C3%ADseos%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001202-001!5e0!3m2!1spt-BR!2sbr!4v1681774641690!5m2!1spt-BR!2sbr"
+            width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p>
+            Alameda Barão de Limeira, 373 - Campos ElíseosSão Paulo - SP, 01202-001
+        </p>
+    </address>
+</section>
